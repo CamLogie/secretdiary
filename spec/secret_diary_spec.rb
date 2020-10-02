@@ -2,6 +2,10 @@ require 'secret_diary'
 
 describe SecretDiary do
 
+  it 'should be locked initially' do
+    expect(subject.locked?).to eq true
+  end 
+
   describe "#add_entry" do
     it 'is locked when trying to call the add_entry method' do
     expect { subject.add_entry }.to raise_error('The diary is locked')
@@ -13,5 +17,6 @@ describe SecretDiary do
     expect { subject.get_entries }.to raise_error('The diary is locked')
     end
   end
+
 
 end
